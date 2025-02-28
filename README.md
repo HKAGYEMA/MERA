@@ -38,7 +38,7 @@ Below is a list of the key steps taken to deploy this serverless solution:
      - I Could do this by creating a virtual environment, installing the required libraries (`pip install boto3`), and zipping them along with the function code.
 
 ### 6. Terraform State Management (Optional but Recommended) - I didnt do so as I am the only Engineer here !
-   - If you're using Terraform, make sure to configure a **remote backend** (e.g., AWS S3 with DynamoDB locking) to manage Terraform's state file in a shared manner.
+   - If you're using Terraform, make sure to configure a remote backend (e.g., AWS S3 with DynamoDB locking) to manage Terraform's state file in a shared manner.
      - Example configuration for `backend` in Terraform:
 
        ```hcl
@@ -84,13 +84,13 @@ Below is a list of the key steps taken to deploy this serverless solution:
 
 
 
-### 11.*Security Considerations**
-   - **IAM Roles and Policies**: Ensure that the Lambda function has the appropriate IAM role to access S3, DynamoDB, and other AWS services.
-   - **S3 Bucket Policy**: Ensure that the S3 bucket is publicly accessible for the HTML file but secure the access to the backend API with proper authorization methods (e.g., API keys or Cognito).
+### 11.Security Considerations**
+   - IAM Roles and Policies**: Ensure that the Lambda function has the appropriate IAM role to access S3, DynamoDB, and other AWS services.
+   - S3 Bucket Policy**: Ensure that the S3 bucket is publicly accessible for the HTML file but secure the access to the backend API with proper authorization methods (e.g., API keys or Cognito).
 
 ---
 
-### **Final Checklist:**
+### Final Checklist:
 - [ ] AWS account with necessary IAM permissions.
 - [ ] AWS CLI configured and working.
 - [ ] Terraform configured for infrastructure provisioning (optional but recommended).

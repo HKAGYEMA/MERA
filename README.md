@@ -38,7 +38,7 @@ Below is a list of the key steps taken to deploy this serverless solution:
      - I Could do this by creating a virtual environment, installing the required libraries (`pip install boto3`), and zipping them along with the function code.
 
 ### 6. Terraform State Management (Optional but Recommended) - I didnt do so as I am the only Engineer here !
-   - If you're using Terraform, make sure to configure a remote backend (e.g., AWS S3 with DynamoDB locking) to manage Terraform's state file in a shared manner.
+   - If you're using Terraform, make sure to configure a **remote backend (e.g., AWS S3 with DynamoDB locking) to manage Terraform's state file in a shared manner.
      - Example configuration for `backend` in Terraform:
 
        ```hcl
@@ -89,7 +89,12 @@ Below is a list of the key steps taken to deploy this serverless solution:
    - S3 Bucket Policy**: Ensure that the S3 bucket is publicly accessible for the HTML file but secure the access to the backend API with proper authorization methods (e.g., API keys or Cognito).
 
 ---
+FUTURE CONSIDERATIONS 
+### r53 and CloudFront (Optional for Better Performance)**
+   - CloudFront: If you plan to use a custom domain or improve performance by caching the HTML, you can configure CloudFront with your S3 bucket as the origin.
+   - Route 53: If you want to use a custom domain (e.g., `www.dynamicstring.com`), set up Route 53 to manage the domain and point it to your CloudFront distribution.
 
+---
 ### Final Checklist:
 - [ ] AWS account with necessary IAM permissions.
 - [ ] AWS CLI configured and working.
@@ -100,13 +105,6 @@ Below is a list of the key steps taken to deploy this serverless solution:
 - [ ] S3 bucket configured for static website hosting.
 - [ ] Git repository initialized with `.gitignore` to exclude Terraform state and large files.
 - [ ] CloudFront and Route 53 (optional) for improved performance and domain management.
-
----
-
-FUTURE CONSIDERATIONS 
-### r53 and CloudFront (Optional for Better Performance)**
-   - CloudFront: If you plan to use a custom domain or improve performance by caching the HTML, you can configure CloudFront with your S3 bucket as the origin.
-   - Route 53: If you want to use a custom domain (e.g., `www.dynamicstring.com`), set up Route 53 to manage the domain and point it to your CloudFront distribution.
 
 
 References

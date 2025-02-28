@@ -6,8 +6,7 @@ The solution involves deploying an AWS cloud-based architecture that serves an H
  Here’s a breakdown of the architecture:
 
 ---
-
- Overview of the Components
+Overview of the Components
 
 The solution leverages AWS to provide the required services. The key components involved are:
 
@@ -16,7 +15,7 @@ The solution leverages AWS to provide the required services. The key components 
 - Amazon S3: A scalable object storage service where the HTML file (`index.html`) is stored and served to users.
 - API Gateway: Exposes an HTTP endpoint to allow external clients to send requests to the Lambda function.
 - IAM Roles and Permissions: Ensures secure access control to AWS resources like DynamoDB, S3, and Lambda.
-- Amazon Cloud watch - To monitor and log the activity of the Lambda function. This is essential for debugging, tracking errors, and understanding how the system behaves in production.
+- Amazon Cloud watch - Enabled cloudwatch Role to monitor and log the activity of the Lambda function. This is essential for debugging, tracking errors, and understanding how the system behaves in production.
 ---
 Detailed Architecture Design
 
@@ -54,7 +53,7 @@ Step 5: IAM Role and Permissions
   - The S3 bucket is configured with a policy to allow public read access to the `index.html` file.
 
 Step 6: AWS Cloud Watch 
-- Role: Enable me to monitor and log the activity of the Lambda function. This is essential for debugging, tracking errors, and understanding how the system behaves in production
+- Role: Enabled CloudWatch logging to monitor and log the activity of the Lambda function. This setup is essential for debugging, tracking errors, and gaining insights into how the system behaves specially in production. CloudWatch helps in identifying issues, ensuring that the Lambda function runs as expected, and providing visibility into its execution
 ---
 
 Architectural Solution Flow
@@ -68,7 +67,6 @@ Architectural Solution Flow
 4. S3 serves the updated HTML: Once the file is updated in S3, users can access the `index.html` file via a public URL to see the updated string.
 
 ---
-
 Justification on  Design Decisions
 
 - Serverless architecture (Lambda): This was chosen to minimize infrastructure management. AWS Lambda automatically scales with the number of requests and charges only for the actual execution time. This ensures a cost-effective solution.
@@ -77,7 +75,6 @@ Justification on  Design Decisions
 - API Gateway for exposing the Lambda function: API Gateway is a managed service that securely exposes the Lambda function via a RESTful API. This enables easy integration with external clients and allows for easy scalability.
 
 ---
-
 Trade-offs and Considerations
 
 Pros:
@@ -92,7 +89,6 @@ Cons:
 - Limited Persistence: DynamoDB is great for key-value storage but not ideal for complex data queries or relational data. However, this is not a major concern for this specific use case.
 
 ---
-
 Enhancements and Future Considerations
 
 If I had more time, here are some ways I could improve and enhance the solution:
